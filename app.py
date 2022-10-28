@@ -30,13 +30,12 @@ def add(a,b):
 def sms():
     if request.method == 'POST':
         content = request.json
-        server = smtplib.SMTP('smtp.gmail.com', 587)
-        server.starttls()
-        server.login("testsmsforwarding@gmail.com", "Test@123sms")
-        server.sendmail("testsmsforwarding@gmail.com", "crizal501@gmail.com", "body")
-        server.quit()
 
-        return jsonify({'status': 'success'})
+        bla = content['test']
+        
+
+        return '''
+        <h1>The content is {}</h1>'''.format(bla)
 
     return jsonify({'status': 'None'})
     # content = request.json
