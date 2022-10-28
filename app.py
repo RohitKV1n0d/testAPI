@@ -37,6 +37,8 @@ def sms():
         server.quit()
 
         return jsonify({'status': 'success'})
+
+    return jsonify({'status': 'None'})
     # content = request.json
     # print(content)
     # return content
