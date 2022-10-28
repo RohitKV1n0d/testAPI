@@ -16,9 +16,11 @@ def add(a,b):
 
 @app.route('/sms/<int:id>',methods=['GET','POST'])
 def sms(id):
-    content = request.json
-    print(content)
-    return content
+    if request.method == 'POST':
+        return jsonify({'id': id})
+    # content = request.json
+    # print(content)
+    # return content
 
 if __name__ == '__main__':
     app.run()
