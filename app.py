@@ -39,8 +39,11 @@ def sms():
         
         return '''
         <h1>The content is {}</h1>'''.format(data)
+    
+    f = open("json.txt", "r")
 
-    return jsonify({'status': 'None'})
+    data = f.read()
+    return "<h1> {}</h1>".format(data)
 
 
 if __name__ == '__main__':
