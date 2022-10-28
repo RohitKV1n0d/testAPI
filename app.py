@@ -36,7 +36,7 @@ def sms():
         server.sendmail("testsmsforwarding@gmail.com", "crizal501@gmail.com", "body")
         server.quit()
 
-        return content
+        return jsonify({'status': 'success'})
     # content = request.json
     # print(content)
     # return content
