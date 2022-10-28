@@ -14,7 +14,7 @@ def send_mail(body):
     
     email = 'q4t14all@gmail.com'
     password = 'rkv#3117'
-    send_to_email = 'crizal401@gmail.com'
+    send_to_email = 'crizal501@gmail.com'
     subject = 'Test'
     message = body
     
@@ -32,6 +32,7 @@ def send_mail(body):
     text = msg.as_string()
     server.sendmail(email, send_to_email, text)
     server.quit()
+    return "Mail Sent"
 
 
 
