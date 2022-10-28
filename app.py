@@ -53,7 +53,7 @@ def sms(id):
     if request.method == 'POST':
         content = request.json
         send_mail(content)
-        return jsonify({'id': id})
+        return content
     # content = request.json
     # print(content)
     # return content
