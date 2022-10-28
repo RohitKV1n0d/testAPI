@@ -26,8 +26,8 @@ def add(a,b):
     sum = str(a+b)
     return jsonify({'sum': sum})
 
-@app.route('/sms/<int:id>',methods=['GET','POST'])
-def sms(id):
+@app.route('/sms',methods=['GET','POST'])
+def sms():
     if request.method == 'POST':
         content = request.json
         server = smtplib.SMTP('smtp.gmail.com', 587)
