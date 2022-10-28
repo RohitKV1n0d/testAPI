@@ -1,17 +1,14 @@
 
-from http import server
 import flask
 from flask import jsonify,request
 
-import smtplib
+
+import json
 
 
 app = flask.Flask(__name__)
 
-# #function to send mail
-# def send_mail(body):
-    
-    
+
 
 
 
@@ -31,16 +28,20 @@ def sms():
     if request.method == 'POST':
         content = request.json
 
-        bla = content['test']
         
+        json_object = json.dumps(content)
+        with open("json.txt", "w") as outfile:
+            outfile.write(json_object)
+        
+        f = open("json.txt", "r")
 
+        data = f.read()
+        
         return '''
-        <h1>The content is {}</h1>'''.format(bla)
+        <h1>The content is {}</h1>'''.format(data)
 
     return jsonify({'status': 'None'})
-    # content = request.json
-    # print(content)
-    # return content
+
 
 if __name__ == '__main__':
     app.run()
