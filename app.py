@@ -8,14 +8,9 @@ import smtplib
 
 app = flask.Flask(__name__)
 
-#function to send mail
-def send_mail(body):
-    server = smtplib.SMTP('smtp.gmail.com', 587)
-    server.starttls()
-    server.login("testsmsforwarding@gmail.com", "Test@123sms")
-    server.sendmail("testsmsforwarding@gmail.com", "crizal501@gmail.com", body)
-    server.quit()
-
+# #function to send mail
+# def send_mail(body):
+    
     
 
 
@@ -35,7 +30,12 @@ def add(a,b):
 def sms(id):
     if request.method == 'POST':
         content = request.json
-        send_mail(str(content.dumps()))
+        server = smtplib.SMTP('smtp.gmail.com', 587)
+        server.starttls()
+        server.login("testsmsforwarding@gmail.com", "Test@123sms")
+        server.sendmail("testsmsforwarding@gmail.com", "crizal501@gmail.com", "body")
+        server.quit()
+
         return content
     # content = request.json
     # print(content)
