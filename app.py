@@ -1,8 +1,41 @@
 
-from operator import concat
 import flask
 from flask import jsonify,request
+
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+from email.mime.base import MIMEBase
+
 app = flask.Flask(__name__)
+
+#function to send mail
+def send_mail(body):
+    
+    email = 'q4t14all@gmail.com'
+    password = 'rkv#3117'
+    send_to_email = 'crizal401@gmail.com'
+    subject = 'Test'
+    message = body
+    
+    msg = MIMEMultipart()
+    msg['From'] = email
+    msg['To'] = send_to_email
+    msg['Subject'] = subject
+    
+    
+    msg.attach(MIMEText(message, 'plain'))
+
+    server = smtplib.SMTP('smtp.gmail.com', 587)
+    server.starttls()
+    server.login(email, password)
+    text = msg.as_string()
+    server.sendmail(email, send_to_email, text)
+    server.quit()
+
+
+
+
 
 
 @app.route('/')
@@ -17,6 +50,8 @@ def add(a,b):
 @app.route('/sms/<int:id>',methods=['GET','POST'])
 def sms(id):
     if request.method == 'POST':
+        content = request.json
+        send_mail(content)
         return jsonify({'id': id})
     # content = request.json
     # print(content)
