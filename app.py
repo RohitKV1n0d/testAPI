@@ -41,12 +41,12 @@ def sms():
 
 @app.route('/getotp',methods=['GET','POST'])
 def getotp():
-    f = open("otp.txt", "rw")
+    f = open("otp.txt", "r")
 
     data = f.read()
 
-    
-    
+    #read and erase the file
+    f = open("otp.txt", "w")
     f.write("")
     f.close()
 
