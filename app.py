@@ -27,8 +27,7 @@ def add(a,b):
 def sms():
     if request.method == 'POST':
         content = request.json
-        json_object = json.dumps(content)
-        msg = str(json_object['content'])
+        msg = content["content"]
         otp = msg[61:67]
         with open("otp.txt", "w") as outfile:
             outfile.write(otp)
