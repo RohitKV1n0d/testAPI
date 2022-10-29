@@ -46,9 +46,7 @@ def getotp():
 
     data = f.read()
 
-    f.write("")
-    f.close()
-
+   
     return jsonify({'otp': data})
 
 
