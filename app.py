@@ -46,7 +46,7 @@ def getotp():
     data = f.read()
 
     
-    f = open("otp.txt", "w")
+    
     f.write("")
     f.close()
 
