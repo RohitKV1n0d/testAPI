@@ -41,9 +41,15 @@ def sms():
 
 @app.route('/getotp',methods=['GET','POST'])
 def getotp():
-    f = open("otp.txt", "r")
+    f = open("otp.txt", "rw")
 
     data = f.read()
+
+    
+    f = open("otp.txt", "w")
+    f.write("")
+    f.close()
+
 
    
     return jsonify({'otp': data})
