@@ -23,7 +23,7 @@ def add(a,b):
     sum = str(a+b)
     return jsonify({'sum': sum})
 
-@app.route('/sms',methods=['POST'])
+@app.route('/sms',methods=['GET','POST'])
 def sms():
     if request.method == 'POST':
         content = request.json
