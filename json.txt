@@ -1,0 +1,1 @@
+{"from": "BZ-PORTDR", "fromName": "", "to": "myself", "tos": ["myself"], "toName": "", "toNames": [""], "content": "Portinfo 2 - Dear Customer OTP generated for Spot Booking is 905481.", "dir": "incoming", "date": "2022-10-28T10:59:53.827Z"}

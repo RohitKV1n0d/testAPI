@@ -23,27 +23,33 @@ def add(a,b):
     sum = str(a+b)
     return jsonify({'sum': sum})
 
-@app.route('/sms',methods=['GET','POST'])
+@app.route('/sms',methods=['POST'])
 def sms():
     if request.method == 'POST':
         content = request.json
-
-        
         json_object = json.dumps(content)
-        with open("json.txt", "w") as outfile:
-            outfile.write(json_object)
+        msg = json_object['content']
+        otp = msg[61:67]
+        with open("otp.txt", "w") as outfile:
+            outfile.write(otp)
         
-        f = open("json.txt", "r")
-
-        data = f.read()
-        
-        return '''
-        <h1>The content is {}</h1>'''.format(data)
+        return 'success'
     
     f = open("json.txt", "r")
 
     data = f.read()
     return "<h1> {}</h1>".format(data)
+
+@app.route('/getotp',methods=['GET','POST'])
+def getotp():
+    f = open("json.txt", "r")
+
+    data = f.read()
+
+    f.write("")
+    f.close()
+
+    return jsonify({'otp': data})
 
 
 if __name__ == '__main__':
